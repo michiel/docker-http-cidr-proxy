@@ -32,7 +32,6 @@ static_resources:
             config: {}
   clusters:
   - name: cidrpool
-    connect_timeout: 0.25s
-    type: strict_dns
-    lb_policy: round_robin
-    hosts:
+    connect_timeout: UPSTREAM_CONNECT_TIMEOUT
+    type: static
+    lb_policy: UPSTREAM_LB_POLICY
