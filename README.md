@@ -1,8 +1,8 @@
 
 ## Example
 
-    docker build .
-    docker run -p 8001:8001 --env UPSTREAM_CIDR=192.168.0.0/28 $IMAGE
+    docker build . -t cidrproxy:latest
+    docker run -p 8001:8001 --env UPSTREAM_CIDR=192.168.0.0/28 cidrproxy:latest
 
     LISTENER_PORT is 8088
     UPSTREAM_PORT is 80
