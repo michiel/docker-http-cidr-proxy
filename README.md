@@ -49,6 +49,7 @@ Open [http://localhost:8001](http://localhost:8001) for admin UI
 | UPSTREAM\_SET\_TLS| None            | Set to 1 to enable TLS context creation |
 | TLS\_CRT\_FILE | None               | Location of CRT file |
 | TLS\_KEY\_FILE | None               | Location of KEY file |
+| DEBUG          | None               | Set to true to dump generated config to STDOUT |
 
 
 
