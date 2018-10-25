@@ -4,6 +4,15 @@ RUN apk add --no-cache bash
 RUN mkdir /tools
 COPY resource/cidr.sh /tools
 COPY resource/run.sh /tools
-CMD /usr/local/bin/envoy --v2-config-only -l $loglevel -c /etc/envoy/envoy.yaml
+COPY resource/front-envoy.yaml /tools
+
+ENV LISTENER_PORT 8088
+ENV UPSTREAM_PORT 80
+ENV ADMIN_PORT 8001
+
+ENV TEMPLATE /tools/front-envoy.yaml
+ENV TARGET /tmp/front-envoy.yaml
+
+CMD /tools/run.sh
 
 
