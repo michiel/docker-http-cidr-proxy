@@ -1,4 +1,24 @@
 
+
+## Variables
+
+
+| Name             | Default          | Description |
+|------------------|------------------|-------------|
+| LISTENER\_PORT   | 8088             | Port to receive connections on |
+| UPSTREAM\_PORT   | 80               | Port to connect upstream       |
+| ADMIN\_PORT      | 8001             | Port to run envoy admin UI on  |
+| UPSTREAM\_CIDR   | None             | CIDR range to configure for upstream |
+| UPSTREAM\_LB\_POLICY| round\_robin  | REQUIRED - Valid envoy load-balancing policy (round\_robin, random, etc) |
+| UPSTREAM\_CONNET\_TIMEOUT| 0.1s     | Upstream timeout |
+| UPSTREAM\_SET\_TLS| None            | Set to 1 to enable TLS context creation |
+| TLS\_CRT\_FILE | None               | Location of CRT file |
+| TLS\_KEY\_FILE | None               | Location of KEY file |
+| DEBUG          | None               | Set to true to dump generated config to STDOUT |
+
+
+
+
 ## Example
 
     docker build .
@@ -33,23 +53,5 @@ Open [http://localhost:8001](http://localhost:8001) for admin UI
 
 
     docker run -p 8001:8001 --env UPSTREAM_CIDR=192.168.0.0/28 --env DUMP_GENERATED_CONFIG=1 --env DEBUG=true --env UPSTREAM_SET_TLS=1 --env TLS_CRT_FILE=/tmp/xxx --env TLS_KEY_FILE=/tmp/xasd cidrproxy:latest
-
-
-## Variables
-
-
-| Name             | Default          | Description |
-|------------------|------------------|-------------|
-| LISTENER\_PORT   | 8088             | Port to receive connections on |
-| UPSTREAM\_PORT   | 80               | Port to connect upstream       |
-| ADMIN\_PORT      | 8001             | Port to run envoy admin UI on  |
-| UPSTREAM\_CIDR   | None             | CIDR range to configure for upstream |
-| UPSTREAM\_LB\_POLICY| round\_robin  | REQUIRED - Valid envoy load-balancing policy (round\_robin, random, etc) |
-| UPSTREAM\_CONNET\_TIMEOUT| 0.1s     | Upstream timeout |
-| UPSTREAM\_SET\_TLS| None            | Set to 1 to enable TLS context creation |
-| TLS\_CRT\_FILE | None               | Location of CRT file |
-| TLS\_KEY\_FILE | None               | Location of KEY file |
-| DEBUG          | None               | Set to true to dump generated config to STDOUT |
-
 
 
