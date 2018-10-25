@@ -52,6 +52,6 @@
 Open [http://localhost:8001](http://localhost:8001) for admin UI
 
 
-    docker run -p 8001:8001 --env UPSTREAM_CIDR=192.168.0.0/28 --env DUMP_GENERATED_CONFIG=1 --env DEBUG=true --env UPSTREAM_SET_TLS=1 --env TLS_CRT_FILE=/tmp/xxx --env TLS_KEY_FILE=/tmp/xasd cidrproxy:latest
+    docker run -p 8001:8001 --env UPSTREAM_CIDR=192.168.0.0/28 --env DEBUG=true --env UPSTREAM_SET_TLS=true --env TLS_CRT_FILE=/secrets/chain.crt --env TLS_KEY_FILE=/secrets/private.key cidrproxy:latest
 
 
