@@ -10,8 +10,8 @@
 | ADMIN\_PORT      | 8001             | Port to run envoy admin UI on  |
 | UPSTREAM\_CIDR   | None             | CIDR range to configure for upstream |
 | UPSTREAM\_LB\_POLICY| round\_robin  | REQUIRED - Valid envoy load-balancing policy (round\_robin, random, etc) |
-| UPSTREAM\_CONNET\_TIMEOUT| 0.1s     | Upstream timeout |
-| UPSTREAM\_SET\_TLS| None            | Set to 1 to enable TLS context creation |
+| UPSTREAM\_CONNECT\_TIMEOUT| 0.1s     | Upstream timeout |
+| UPSTREAM\_SET\_TLS| None            | Set to true to enable TLS context creation |
 | TLS\_CRT\_FILE | None               | Location of CRT file |
 | TLS\_KEY\_FILE | None               | Location of KEY file |
 | DEBUG          | None               | Set to true to dump generated config to STDOUT |

@@ -46,11 +46,8 @@ echo "UPSTREAM_CIDR will expand to $IP_COUNT addresses :"
 
 $CIDR_SCRIPT $UPSTREAM_CIDR  | sed 's/^/   - /'
 
-if [ -z ${UPSTREAM_SET_TLS+x} ];
+if [[ $UPSTREAM_SET_TLS = "true" ]];
 then
-  echo "No UPSTREAM_SET_TLS, keeping context empty";
-  echo "    tls_context: {}" >> $TARGET
-else
   echo "UPSTREAM_SET_TLS, creating context";
 
   if [ -z ${TLS_CRT_FILE+x} ]; then
@@ -70,6 +67,9 @@ else
   echo "              filename: \"$TLS_CRT_FILE\"" >> $TARGET
   echo "            private_key:" >> $TARGET
   echo "              filename: \"$TLS_KEY_FILE\"" >> $TARGET
+else
+  echo "No UPSTREAM_SET_TLS, keeping context empty";
+  echo "    tls_context: {}" >> $TARGET
 fi
 
 echo "    hosts:" >> $TARGET
